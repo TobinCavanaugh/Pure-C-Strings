@@ -16,6 +16,7 @@ int PureStringDoLogging = 0;
 /// \param size The size of the allocation
 /// \param message The message to be logged
 /// \return Same as malloc, may return null same as malloc but will printf
+
 void *MallocLog(const size_t size, const char *message) {
     var dat = malloc(size);
 
@@ -106,7 +107,7 @@ void PureString_Copy(PureString *dest, PureString *source, const unsigned int of
 /// \param aString
 /// \param sub
 /// \return
-int PureString_Contains(PureString *aString, const char *sub) {
+unsigned int PureString_Contains(PureString *aString, const char *sub) {
 
     char *dest = strstr(aString->characters, sub);
 
@@ -114,7 +115,7 @@ int PureString_Contains(PureString *aString, const char *sub) {
         return -1;
     }
 
-    int pos = dest - aString->characters;
+    unsigned int pos = dest - aString->characters;
 
     return pos;
 }
@@ -227,9 +228,9 @@ void PureString_RemoveRange(PureString *ps, const unsigned int start, const unsi
     ps->characters = newDat;
 }
 
-/// Frees the purestring and its characters
+/// Frees the purestring and its characters, use this for destroying purestrings
 /// \param ps
-void PureString_Destroy(PureString * ps){
+void PureString_Destroy(PureString *ps) {
     free(ps->characters);
     free(ps);
 }

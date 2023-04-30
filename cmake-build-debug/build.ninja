@@ -55,6 +55,12 @@ build CMakeFiles/TextRPG.dir/main.c.obj: C_COMPILER__TextRPG_Debug C$:/Users/tob
   OBJECT_DIR = CMakeFiles\TextRPG.dir
   OBJECT_FILE_DIR = CMakeFiles\TextRPG.dir
 
+build CMakeFiles/TextRPG.dir/PureCStrings.c.obj: C_COMPILER__TextRPG_Debug C$:/Users/tobin/CLionProjects/TextRPG/PureCStrings.c || cmake_object_order_depends_target_TextRPG
+  DEP_FILE = CMakeFiles\TextRPG.dir\PureCStrings.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu11
+  OBJECT_DIR = CMakeFiles\TextRPG.dir
+  OBJECT_FILE_DIR = CMakeFiles\TextRPG.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TextRPG
@@ -63,7 +69,7 @@ build CMakeFiles/TextRPG.dir/main.c.obj: C_COMPILER__TextRPG_Debug C$:/Users/tob
 #############################################
 # Link the executable TextRPG.exe
 
-build TextRPG.exe: C_EXECUTABLE_LINKER__TextRPG_Debug CMakeFiles/TextRPG.dir/main.c.obj
+build TextRPG.exe: C_EXECUTABLE_LINKER__TextRPG_Debug CMakeFiles/TextRPG.dir/main.c.obj CMakeFiles/TextRPG.dir/PureCStrings.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TextRPG.dir

@@ -3,4 +3,4 @@ project(TextRPG C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(TextRPG main.c)
+add_executable(TextRPG main.c PureCStrings.c)
