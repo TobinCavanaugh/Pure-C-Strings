@@ -62,6 +62,12 @@ Starting!!
 STARTING!!   
 ```
 
+## Methods
+![image](https://raw.githubusercontent.com/TobinCavanaugh/Pure-C-Strings/master/gitpage/header.png?token=GHSAT0AAAAAACBV3GXNT2CXWLUKV5GFVVWOZCO4OMA)
+
+## Types
+![image](https://raw.githubusercontent.com/TobinCavanaugh/Pure-C-Strings/master/gitpage/typedef.png?token=GHSAT0AAAAAACBV3GXMU5V7DLZVXKO2635CZCO4OMQ)
+
 ## Building With Pure C Strings
 
 My CMake File just looks like this, I just put the .c and .h files directly into the folder where my main.c file is. You probably know more about including and linking than I do, and it should be a simple process.
