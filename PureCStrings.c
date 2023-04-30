@@ -322,6 +322,7 @@ void PureString_ReplaceChar(PureString *ps, char from, char to, StringFlags flag
 /// \param from The string to be replaced
 /// \param to The string to replace from with
 /// \param sf only SF_IGNORECASE works
+
 void PureString_Replace(PureString *ps, char *from, char *to, StringFlags sf) {
     unsigned int ignoreCase = sf & SF_IGNORECASE;
     unsigned int len = PureString_Length(ps);

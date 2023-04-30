@@ -28,3 +28,4 @@ void PureString_RemoveRange(PureString *ps, unsigned int start, unsigned int end
 void PureString_Destroy(PureString * ps);
 void PureString_Substring(PureString *ps, unsigned int start, unsigned int end);
 void PureString_ReplaceChar(PureString *ps, char from, char to, StringFlags flags);
+void PureString_Replace(PureString *ps, char *from, char *to, StringFlags sf);

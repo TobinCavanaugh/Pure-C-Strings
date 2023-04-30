@@ -2,6 +2,8 @@
 #include "PureCStrings.h"
 #include <time.h>
 #include <sys/time.h>
+#include <string.h>
+#include <malloc.h>
 
 #define var __auto_type
 #define uint unsigned int
@@ -54,7 +56,7 @@ void FullBenchMark(unsigned int it) {
         PureString_Replace(replacements[i], ",", "-", SF_NONE);
     }
 
-    EndTimer("replacement of char * with char *");
+    EndTimer("Replacement of char * with char *");
 
     for (int i = 0; i < iterations; i++) {
         PureString_Destroy(replacements[i]);
@@ -99,7 +101,7 @@ void FullBenchMark(unsigned int it) {
         PureString_Destroy(a);
     }
 
-    EndTimer("creation and destruction");
+    EndTimer("Creating and destroying");
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -118,7 +120,7 @@ void FullBenchMark(unsigned int it) {
         PureString_Concatenate(concatenations[i], exampleString, 0);
     }
 
-    EndTimer("Concatenation");
+    EndTimer("Concatenating the example string to the example string");
 
     for (int i = 0; i < iterations; i++) {
         PureString_Destroy(concatenations[i]);
@@ -143,7 +145,7 @@ void FullBenchMark(unsigned int it) {
         PureString_Substring(substrings[i], 0, exampleLength - 1);
     }
 
-    EndTimer("Full length substrings");
+    EndTimer("Substring the entire string");
 
     for (int i = 0; i < iterations; i++) {
         PureString_Destroy(substrings[i]);
@@ -193,7 +195,7 @@ void FullBenchMark(unsigned int it) {
         PureString_Trim(trimming[i], exampleLength - 1);
     }
 
-    EndTimer("Trims the entire string");
+    EndTimer("Trimming the entire string");
 
     for (int i = 0; i < iterations; i++) {
         PureString_Destroy(trimming[i]);
@@ -218,7 +220,7 @@ void FullBenchMark(unsigned int it) {
         PureString_Contains(contains[i], contains[i]->characters);
     }
 
-    EndTimer("Checks if the string contains the entire string");
+    EndTimer("Contains example string");
 
     for (int i = 0; i < iterations; i++) {
         PureString_Destroy(contains[i]);
