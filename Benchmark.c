@@ -217,7 +217,7 @@ void FullBenchMark(unsigned int it) {
     StartTimer();
 
     for (int i = 0; i < iterations; i++) {
-        PureString_Contains(contains[i], contains[i]->characters);
+        PureString_Contains(contains[i], contains[i]->characters, SF_NONE);
     }
 
     EndTimer("Contains example string");

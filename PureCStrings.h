@@ -4,7 +4,10 @@
 
 #ifndef TEXTRPG_PURECSTRINGS_H
 #define TEXTRPG_PURECSTRINGS_H
-
+#include <malloc.h>
+#include <string.h>
+#include <stdio.h>
+#include <ctype.h>
 #endif //TEXTRPG_PURECSTRINGS_H
 
 
@@ -21,7 +24,7 @@ void *MallocLog(size_t size, const char *message);
 unsigned int PureString_Length(PureString *string);
 void PureString_Concatenate(PureString *ps, const char *addition, size_t length);
 void PureString_Copy(PureString *dest, PureString *source, unsigned int offset);
-unsigned int PureString_Contains(PureString *aString, const char *sub);
+unsigned int PureString_Contains(PureString *aString, const char *sub, StringFlags flag);
 PureString *PureString_Create(const char *initial);
 void PureString_Trim(PureString *ps, unsigned int index);
 void PureString_RemoveRange(PureString *ps, unsigned int start, unsigned int end);
@@ -29,3 +32,5 @@ void PureString_Destroy(PureString * ps);
 void PureString_Substring(PureString *ps, unsigned int start, unsigned int end);
 void PureString_ReplaceChar(PureString *ps, char from, char to, StringFlags flags);
 void PureString_Replace(PureString *ps, char *from, char *to, StringFlags sf);
+void PureString_ToLower(PureString *ps);
+void PureString_ToUpper(PureString *ps);

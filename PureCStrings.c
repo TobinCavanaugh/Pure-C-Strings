@@ -2,11 +2,8 @@
 // Created by tobin on 4/29/2023.
 //
 
-#include <malloc.h>
-#include <string.h>
-#include <stdio.h>
 #include "PureCStrings.h"
-#include <ctype.h>
+
 
 #define var __auto_type
 
@@ -20,7 +17,7 @@ int PureStringDoLogging = 0;
 void *MallocLog(const size_t size, const char *message) {
     var dat = malloc(size);
 
-    printf("Allocating for \"%s\" \n", message);
+    printf("Allocating for \"%s\" (%zu) \n", message, size);
     if (dat == NULL) {
         printf("Ran outta memory on %s", message);
     }
@@ -107,17 +104,58 @@ void PureString_Copy(PureString *dest, PureString *source, const unsigned int of
 /// \param aString
 /// \param sub
 /// \return
-unsigned int PureString_Contains(PureString *aString, const char *sub) {
+unsigned int PureString_Contains(PureString *aString, const char *sub, StringFlags flag) {
+    int ignoreCase = flag & SF_IGNORECASE;
 
-    char *dest = strstr(aString->characters, sub);
+    char *dest;
+    unsigned int pos = -1;
+
+    if (!ignoreCase) {
+        dest = strstr(aString->characters, sub);
+        pos = dest - aString->characters;
+    } else {
+
+        var ps = PureString_Create(aString->characters);
+        PureString_ToLower(ps);
+
+        char * subClone;
+
+        int sLen = strlen(sub);
+
+        subClone = malloc(sLen + 1);
+        subClone[sLen] = '\0';
+
+        for(int i = 0; i < sLen; i++){
+            subClone[i] = tolower(sub[i]);
+        }
+
+        dest = strstr(ps->characters, subClone);
+
+        pos = dest - ps->characters;
+
+        free(subClone);
+        PureString_Destroy(ps);
+    }
 
     if (dest == NULL) {
         return -1;
     }
 
-    unsigned int pos = dest - aString->characters;
-
     return pos;
+}
+
+void PureString_ToUpper(PureString *ps) {
+    int len = PureString_Length(ps);
+    for (int i = 0; i < len; i++) {
+        ps->characters[i] = toupper(ps->characters[i]);
+    }
+}
+
+void PureString_ToLower(PureString *ps) {
+    int len = PureString_Length(ps);
+    for (int i = 0; i < len; i++) {
+        ps->characters[i] = tolower(ps->characters[i]);
+    }
 }
 
 /// Creates a new purestring with the initial data
