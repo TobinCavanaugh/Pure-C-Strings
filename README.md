@@ -63,10 +63,12 @@ STARTING!!
 ```
 
 ## Methods
-![image](https://raw.githubusercontent.com/TobinCavanaugh/Pure-C-Strings/master/gitpage/header.png?token=GHSAT0AAAAAACBV3GXNT2CXWLUKV5GFVVWOZCO4OMA)
+
+<img src="https://raw.githubusercontent.com/TobinCavanaugh/Pure-C-Strings/master/gitpage/header.png?token=GHSAT0AAAAAACBV3GXNT2CXWLUKV5GFVVWOZCO4OMA" height="500" />
+
 
 ## Types
-![image](https://raw.githubusercontent.com/TobinCavanaugh/Pure-C-Strings/master/gitpage/typedef.png?token=GHSAT0AAAAAACBV3GXMU5V7DLZVXKO2635CZCO4OMQ)
+<img src="https://raw.githubusercontent.com/TobinCavanaugh/Pure-C-Strings/master/gitpage/typedef.png?token=GHSAT0AAAAAACBV3GXMU5V7DLZVXKO2635CZCO4OMQ" height="350" />
 
 ## Building With Pure C Strings
 
@@ -87,7 +89,7 @@ Heres the benchmark I got, you can run this by including Benchmark.c and running
 
 In my benchmark I did 10000 iterations with a string about 1800 characters long.
 (time in ms, lower is better)
-![image](https://raw.githubusercontent.com/TobinCavanaugh/Pure-C-Strings/master/gitpage/benchmark.png?token=GHSAT0AAAAAACBV3GXNDUXDR4PKBG75GQWGZCO4OLA)
+<img src="https://raw.githubusercontent.com/TobinCavanaugh/Pure-C-Strings/master/gitpage/benchmark.png?token=GHSAT0AAAAAACBV3GXNDUXDR4PKBG75GQWGZCO4OLA" height="350" />
 
 This benchmark isn't very thorough and I'd recommend benchmarking this yourself to see if it would fit your needs.
 
