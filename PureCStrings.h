@@ -26,6 +26,7 @@ void PureString_Concatenate(PureString *ps, const char *addition, size_t length)
 void PureString_Copy(PureString *dest, PureString *source, unsigned int offset);
 unsigned int PureString_Contains(PureString *aString, const char *sub, StringFlags flag);
 PureString *PureString_Create(const char *initial);
+PureString *PureString_CreateEmpty(unsigned int length);
 void PureString_Trim(PureString *ps, unsigned int index);
 void PureString_RemoveRange(PureString *ps, unsigned int start, unsigned int end);
 void PureString_Destroy(PureString * ps);

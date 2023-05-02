@@ -75,7 +75,7 @@ void PureString_Copy(PureString *dest, PureString *source, const unsigned int of
     //we need to expand the string so malloc some new
     char *dat;
     if (PureStringDoLogging) {
-        dat = MallocLog(srcLength, "Pure string copy dat is no good");
+        dat = MallocLog(srcLength, "Pure string copy");
     } else {
         dat = malloc(srcLength);
     }
@@ -115,24 +115,37 @@ unsigned int PureString_Contains(PureString *aString, const char *sub, StringFla
         pos = dest - aString->characters;
     } else {
 
+        //Create a new lowercase string
         var ps = PureString_Create(aString->characters);
         PureString_ToLower(ps);
 
-        char * subClone;
 
+        //Get the length of the substring
         int sLen = strlen(sub);
 
-        subClone = malloc(sLen + 1);
+        //Initialize a new string with sLen + 1, for null terminator
+        char *subClone;
+        if (PureStringDoLogging) {
+            subClone = MallocLog(sLen + 1, "Contains malloc");
+        } else {
+            subClone = malloc(sLen + 1);
+        }
+
+        //Assign the null terminator
         subClone[sLen] = '\0';
 
-        for(int i = 0; i < sLen; i++){
+        //Copy the values over TODO maybe use strcpy??
+        for (int i = 0; i < sLen; i++) {
             subClone[i] = tolower(sub[i]);
         }
 
+        //Get the destination
         dest = strstr(ps->characters, subClone);
 
+        //Get the position
         pos = dest - ps->characters;
 
+        //Free and destroy the old stuff
         free(subClone);
         PureString_Destroy(ps);
     }
@@ -144,6 +157,8 @@ unsigned int PureString_Contains(PureString *aString, const char *sub, StringFla
     return pos;
 }
 
+/// Converts the purestring to all uppercase, based on the toupper function
+/// \param ps
 void PureString_ToUpper(PureString *ps) {
     int len = PureString_Length(ps);
     for (int i = 0; i < len; i++) {
@@ -151,6 +166,8 @@ void PureString_ToUpper(PureString *ps) {
     }
 }
 
+/// Converts the purestring to all lowercase, based on the tolower function
+/// \param ps
 void PureString_ToLower(PureString *ps) {
     int len = PureString_Length(ps);
     for (int i = 0; i < len; i++) {
@@ -189,6 +206,39 @@ PureString *PureString_Create(const char *initial) {
     }
 
     return ps;
+}
+
+/// Creates an empty purestring initialized with empty spaces
+/// \param length
+/// \return
+PureString *PureString_CreateEmpty(const unsigned int length) {
+
+    //No reason to manually handle this case
+    if(length == 0){
+        return PureString_Create("");
+    }
+
+    //Malloc dat
+    char *dat;
+    if (PureStringDoLogging) {
+        dat = MallocLog(length + 1, "Creating empty purestring");
+    } else {
+        dat = malloc(length + 1);
+    }
+
+    //Null terminator
+    dat[length] = '\0';
+
+    //Set each char to a space
+    for (int i = 0; i < length; i++) {
+        dat[i] = ' ';
+    }
+
+    //Create the new string
+    var nString = PureString_Create(dat);
+
+    free(dat);
+    return nString;
 }
 
 /// Trims a string at the index, trims everything to the right of the character at index. Done inclusively
