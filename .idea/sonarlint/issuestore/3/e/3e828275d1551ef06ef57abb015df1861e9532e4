@@ -1,0 +1,27 @@
+
+Nc:S1135‰"4Complete the task associated to this "TODO" comment.(òÓê
+8‹Ù®Ïı0
+Tc:S1135˜"4Complete the task associated to this "TODO" comment.(Ì„ØÅúÿÿÿÿ8ÛÊ½Ïı0
+rc:S5276 "Simplicit conversion loses integer precision: 'unsigned long long' to 'unsigned int'(ßÆ¯´şÿÿÿÿ8’ñ¨Ïı0
+Wc:S5276‹"<implicit conversion loses integer precision: 'int' to 'char'(®ú£ñ8’ñ¨Ïı0
+ic:S5276s"Jimplicit conversion loses integer precision: 'long long' to 'unsigned int'(§Æ™úÿÿÿÿ8’ñ¨Ïı0
+dc:S5276|"Jimplicit conversion loses integer precision: 'unsigned long long' to 'int'(˜°úŞ8’ñ¨Ïı0
+ec:S5276’"Jimplicit conversion loses integer precision: 'long long' to 'unsigned int'(”ûæŞ8’ñ¨Ïı0
+Vc:S5276¥"<implicit conversion loses integer precision: 'int' to 'char'(å¦î#8’ñ¨Ïı0
+Wc:S5276®"<implicit conversion loses integer precision: 'int' to 'char'(ˆóÛù8’ñ¨Ïı0
+_c:S1768”"?result of comparison of unsigned expression < 0 is always false(ğİ°ÿÿÿÿÿ8êÊ½Ïı0
+_c:S1768”"?result of comparison of unsigned expression < 0 is always false(ğİ°ÿÿÿÿÿ8êÊ½Ïı0
+Zc:S1768Ô"?result of comparison of unsigned expression < 0 is always false(à§÷‘8êÊ½Ïı0
+nc:S5276¡"Simplicit conversion loses integer precision: 'unsigned long long' to 'unsigned int'(Ø“º™8»ª´Ïı0
+sc:S5276¢"Simplicit conversion loses integer precision: 'unsigned long long' to 'unsigned int'(„¸«¥øÿÿÿÿ8ëÊ½Ïı0
+Wc:S5825"8Define the type with "typedef" instead of using a macro.(€ñã´üÿÿÿÿ8—ñ¨Ïı0
+ˆc:S995"jMake the type of this parameter a pointer-to-const. The current type of "string" is "struct PureString *".(¦“Ôˆûÿÿÿÿ8˜ñ¨Ïı0
+„c:S995k"kMake the type of this parameter a pointer-to-const. The current type of "aString" is "struct PureString *".(º¿ƒØ8ô½©Ïı0
+yc:S5350n"ZMake the type of this variable a pointer-to-const. The current type of "dest" is "char *".(ê„ÿÙşÿÿÿÿ8õ½©Ïı0
+>c:S1110ø"#Remove these redundant parentheses.(§ü£ª8ıÊ½Ïı0
+uc:S995"[Make the type of this parameter a pointer-to-const. The current type of "from" is "char *".(é˜¤£8ƒË½Ïı0
+sc:S995"YMake the type of this parameter a pointer-to-const. The current type of "to" is "char *".(é˜¤£8ƒË½Ïı0
+Lc:S886§"2Refactor this loop so that it is less error-prone.(Õ†ğå8„Ë½Ïı0
+gc:S3519‡"GOut of bound memory access (access exceeds upper limit of memory block)(Í÷ô—ıÿÿÿÿ8Ï½Ïı0
+=c:S125’"Remove the commented out code.(»Ÿæğúÿÿÿÿ8Ï½Ïı0
+=c:S125Ş"Remove the commented out code.(¯çäøÿÿÿÿ8‘Ï½Ïı0
