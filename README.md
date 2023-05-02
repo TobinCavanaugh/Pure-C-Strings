@@ -63,8 +63,7 @@ STARTING!!
 ```
 
 ## Methods
-
-<img src="https://raw.githubusercontent.com/TobinCavanaugh/Pure-C-Strings/master/gitpage/header.png?token=GHSAT0AAAAAACBV3GXNT2CXWLUKV5GFVVWOZCO4OMA" height="500" />
+<img src="https://raw.githubusercontent.com/TobinCavanaugh/Pure-C-Strings/master/gitpage/header.png" height="500" />
 
 
 ## Types
