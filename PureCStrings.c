@@ -2,9 +2,10 @@
 // Created by tobin on 4/29/2023.
 //
 
+#include <stdarg.h>
 #include "PureCStrings.h"
 
-
+#define uint unsigned int
 #define var __auto_type
 
 int PureStringDoLogging = 0;
@@ -410,7 +411,6 @@ void PureString_ReplaceChar(PureString *ps, char from, char to, StringFlags flag
 /// \param from The string to be replaced
 /// \param to The string to replace from with
 /// \param sf only SF_IGNORECASE works
-
 void PureString_Replace(PureString *ps, char *from, char *to, StringFlags sf) {
     unsigned int ignoreCase = sf & SF_IGNORECASE;
     unsigned int len = PureString_Length(ps);
@@ -418,61 +418,71 @@ void PureString_Replace(PureString *ps, char *from, char *to, StringFlags sf) {
     unsigned int toLen = strlen(to);
 
     int instancesOfFrom = 0;
+    unsigned int i = 0;
 
-    //Iterate through each character
-    for (unsigned int i = 0; i < len; i++) {
-
-        //If its out of bounds
-        if (i + fromLen > len) {
-            break;
-        }
-
-        char *selected = malloc(sizeof(ps->characters[0]) * fromLen);
-        for (unsigned int v = 0; v < fromLen; v++) {
-            selected[v] = ps->characters[i + v];
-        }
+    // Count the instances of 'from' in the string
+    while (i + fromLen <= len) {
+        char *selected = malloc(sizeof(ps->characters[0]) * (fromLen + 1));
+        strncpy(selected, ps->characters + i, fromLen);
+        selected[fromLen] = '\0';
 
         int match = 0;
         if (ignoreCase) {
-            //If the compare fails then match = 0, otherwise it = 1
+            match = strncasecmp(selected, from, fromLen) == 0;
+        } else {
+            match = strncmp(selected, from, fromLen) == 0;
+        }
+
+        free(selected);
+
+        if (match) {
+            instancesOfFrom++;
+            i += fromLen;
+        } else {
+            i++;
+        }
+    }
+
+    // Calculate new string length
+    unsigned int diff = toLen - fromLen;
+    unsigned int newLen = len + diff * instancesOfFrom;
+
+    // Allocate memory for the new string
+    char *newDat = malloc(sizeof(ps->characters[0]) * (newLen + 1));
+    newDat[0] = '\0'; // Ensure the string is initially empty
+
+    // Iterate through the original string and perform the replacement
+    i = 0;
+    while (i + fromLen <= len) {
+        char *selected = malloc(sizeof(ps->characters[0]) * (fromLen + 1));
+        strncpy(selected, ps->characters + i, fromLen);
+        selected[fromLen] = '\0';
+
+        int match = 0;
+        if (ignoreCase) {
             match = strncasecmp(selected, from, fromLen) == 0;
         } else {
             match = strncmp(selected, from, fromLen) == 0;
         }
 
         if (match) {
-            instancesOfFrom++;
-
-            //Calculate new string length
-            unsigned int diff = toLen - fromLen;
-            unsigned int newLen = len + diff * instancesOfFrom;
-
-            //Allocate the newdat string
-            char *newDat;
-            if (PureStringDoLogging) {
-                newDat = MallocLog(sizeof(ps->characters[0]) * newLen + 1, "Replace malloc");
-            } else {
-                newDat = malloc(sizeof(ps->characters[0]) * newLen + 1);
-            }
-
-            //Copy from the characters to the new dat with the length of i
-            strncpy(newDat, ps->characters, i);
-            newDat[i] = '\0';
-
-            //Concatenate the replacement string
             strcat(newDat, to);
-
-            //Concatenate the part that should be after the replacement string
-            strcat(newDat, ps->characters + i + fromLen);
-
-            //Free and re-assign
-            free(ps->characters);
-            ps->characters = newDat;
-            len = newLen;
+            i += fromLen;
+        } else {
+            strncat(newDat, ps->characters + i, 1);
+            i++;
         }
 
         free(selected);
     }
+
+    // Copy any remaining characters from the original string
+    strcat(newDat, ps->characters + i);
+
+    // Free the old string and assign the new string
+    free(ps->characters);
+    ps->characters = newDat;
+    len = newLen;
 }
 
 //PureString **PureString_Split(PureString *ps, const char *separator, int *count) {
