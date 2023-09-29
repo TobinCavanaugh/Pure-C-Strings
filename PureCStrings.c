@@ -65,11 +65,26 @@ void PureString_Concatenate(PureString *ps, const char *addition, size_t length)
     }
 }
 
+unsigned int PureString_Equals(PureString *a, PureString *b) {
+    //If they are not the same length`
+    if (strlen(a->characters) != strlen(b->characters)) {
+        return 0;
+    }
+
+    for (int i = 0; i < strlen(a->characters); i++) {
+        if (a->characters[i] != b->characters[i]) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
 /// Copies from source to destination, offset of 0 means a direct copy, an offset of any more, copies with a shift to the right
 /// dest[0 + n] = src[0]
 /// \param aString
 /// \param bString
-void PureString_Copy(PureString *dest, PureString *source, const unsigned int offset) {
+void PureString_Copy(PureString *dest, PureString *source, const int offset) {
 
     unsigned int srcLength = PureString_Length(source);
 
@@ -215,7 +230,7 @@ PureString *PureString_Create(const char *initial) {
 PureString *PureString_CreateEmpty(const unsigned int length) {
 
     //No reason to manually handle this case
-    if(length == 0){
+    if (length == 0) {
         return PureString_Create("");
     }
 
@@ -406,7 +421,7 @@ void PureString_ReplaceChar(PureString *ps, char from, char to, StringFlags flag
     }
 }
 
-/// Replace the from characters with the to characters TODO array isnt resized with larger value of to, segfault. Also pretty slow, look into regex perhaps
+/// Replace the from characters with the to characters TODO array isnt resized with larger value of to, segfault. Also pretty slow, look into regex perhaps. BROKEN
 /// \param ps
 /// \param from The string to be replaced
 /// \param to The string to replace from with

@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "TextRPG::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-TextRPG-Debug-be444bcc57ffe64350fc.json",
+					"jsonFile" : "target-TextRPG-Debug-89bc8966cc8c305ec0b9.json",
 					"name" : "TextRPG",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/tobin/CLionProjects/TextRPG/cmake-build-debug",
-		"source" : "C:/Users/tobin/CLionProjects/TextRPG"
+		"build" : "C:/Users/tobin/Documents/_Repos/Pure-C-Strings/cmake-build-debug",
+		"source" : "C:/Users/tobin/Documents/_Repos/Pure-C-Strings"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 5
 	}
 }
